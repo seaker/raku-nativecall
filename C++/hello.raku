@@ -1,9 +1,7 @@
-# $ g++ -shared -o hello.so hello.cpp
-# $ raku hello.raku
-# Hello, World!
+#!/bin/env raku
 
 use NativeCall;
 
-sub hello() is native('hello.so') is symbol('_Z5hellov') {*}
+sub hello() is native('./hello.so') is symbol('_Z5hellov') {*}
 
 hello();

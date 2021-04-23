@@ -1,9 +1,8 @@
-# $ g++ -shared -o my_sqr_c.so sqr-c.cpp 
-# $ raku sqr-c.raku
-# 25
+#!/bin/env raku
 
 use NativeCall;
 
-sub my_sqr(int32) returns int32 is native('my_sqr_c.so') is symbol('my_sqr') {*}
+sub my_sqr(int32) returns int32 is native('./sqr-c.so') is symbol('my_sqr') {*}
 
-say my_sqr(5);
+put my_sqr(5);
+put my_sqr(11);
