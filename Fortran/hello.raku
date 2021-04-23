@@ -1,9 +1,7 @@
-# $ gfortran -shared -o hello.so hello.f95
-# $ raku hello.raku
-#  Hello, World!
+#!/bin/env raku
 
 use NativeCall;
 
-sub hello() is native('hello.so') is symbol('hello_') {*}
+sub hello() is native('./hello.so') is symbol('hello_') {*}
 
 hello();

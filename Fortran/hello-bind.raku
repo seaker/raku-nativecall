@@ -1,9 +1,7 @@
-# $ gfortran -shared -o hello-bind.so hello-bind.f95
-# $ raku hello-bind.raku
-#  Hello, World!
+#!/bin/env raku
 
 use NativeCall;
 
-sub hello() is native('hello-bind.so') {*}
+sub hello() is native('./hello-bind.so') {*}
 
 hello();
