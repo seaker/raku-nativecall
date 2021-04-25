@@ -1,8 +1,12 @@
 CXXFLAGS := -Wall -fPIC
 
-TARGETS := talk sqr sqr-c hello func
+TARGETS := string talk sqr sqr-c hello func
 
 latest: $(firstword $(TARGETS))
+
+%: %.cc
+	g++ $(CXXFLAGS) -shared -o $*.so $^
+	chmod 644 $*.so
 
 %: %.cpp
 	g++ $(CXXFLAGS) -shared -o $*.so $^
